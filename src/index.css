@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
+.font-libre {
+  font-family: 'Libre Baskerville', serif;
+}
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 222 47% 11%;
+    --primary-foreground: 45 30% 96%;
+
+    --secondary: 45 30% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 220 14% 90%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 85%;
+    --input: 220 13% 85%;
+    --ring: 38 92% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --hero-overlay: 222 47% 11%;
+    --nav-bg: 222 47% 11%;
+    --gold: 38 92% 50%;
+    --gold-light: 45 100% 72%;
+    --cream: 45 30% 96%;
+
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Shadows */
+    --shadow-elegant: 0 4px 30px hsla(222, 47%, 11%, 0.1);
+    --shadow-hero: 0 25px 50px -12px hsla(222, 47%, 11%, 0.25);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 45 30% 96%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 45 30% 96%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 45 30% 96%;
+
+    --primary: 45 30% 96%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 222 47% 15%;
+    --secondary-foreground: 45 30% 96%;
+
+    --muted: 222 47% 15%;
+    --muted-foreground: 220 14% 65%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 47% 18%;
+    --input: 222 47% 18%;
+    --ring: 38 92% 50%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative text-cream/90 hover:text-cream transition-colors duration-300 text-sm tracking-wide;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-px bg-gold scale-x-0 origin-right transition-transform duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply scale-x-100 origin-left;
+  }
+
+  .hamburger-line {
+    @apply block h-0.5 w-5 transition-all duration-300 ease-out origin-center;
+  }
+
+  .hamburger-open .hamburger-line:nth-child(1) {
+    @apply rotate-45 translate-y-[7px];
+  }
+
+  .hamburger-open .hamburger-line:nth-child(2) {
+    @apply opacity-0 scale-x-0;
+  }
+
+  .hamburger-open .hamburger-line:nth-child(3) {
+    @apply -rotate-45 -translate-y-[7px];
+  }
+
+  .hero-slide {
+    @apply absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out;
+  }
+
+  .hero-slide.active {
+    @apply opacity-100;
+  }
+
+  .carousel-dot {
+    @apply w-2 h-2 rounded-full bg-cream/40 transition-all duration-300 cursor-pointer;
+  }
+
+  .carousel-dot.active {
+    @apply bg-gold w-6 sm:w-8;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-gold to-gold-light bg-clip-text text-transparent;
+  }
+
+  .bg-hero-overlay {
+    background: linear-gradient(
+      180deg,
+      hsla(var(--hero-overlay), 0.7) 0%,
+      hsla(var(--hero-overlay), 0.4) 50%,
+      hsla(var(--hero-overlay), 0.6) 100%
+    );
+  }
+}
