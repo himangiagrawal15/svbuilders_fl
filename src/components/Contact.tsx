@@ -2,16 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Mail, Phone, MapPin, Send, User, MessageSquare } from "lucide-react";
 
 const contactInfo = [
+
   {
     icon: Phone,
     title: "Call Us",
-    info: "+91 9945586527",
-    subInfo: "Available 24/7",
-    link: "tel:+919945586527",
-  },
-  {
-    icon: Phone,
-    title: "Alternate Phone",
     info: "+91 9538595685",
     subInfo: "Mon–Sat 9AM–6PM",
     link: "tel:+919538595685",
@@ -19,9 +13,9 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    info: "svdevelopers.construct@gmail.com",
+    info: "marketing@svdevelopers.in",
     subInfo: "Reply within 24 hours",
-    link: "mailto:svdevelopers.construct@gmail.com",
+    link: "marketing@svdevelopers.in",
   },
   {
     icon: MapPin,

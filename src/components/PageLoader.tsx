@@ -54,7 +54,7 @@ export default function PageLoader() {
         }}
       >
         <img
-          src="https://i.ibb.co/Z6CBvxYn/SVLOGO.png"
+          src="/SVLOGO.png"
           alt="SV Developers"
           className="h-20 w-auto object-contain"
           style={{ filter: "brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(-5deg) brightness(1.3)" }}

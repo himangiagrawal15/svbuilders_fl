@@ -155,7 +155,7 @@ export default function Hero() {
           className="font-body"
           style={{ fontSize: "0.50rem", letterSpacing: "0.28em", color: "rgba(237,220,190,0.55)", textTransform: "uppercase" }}
         >
-          Bengaluru, India
+          Karnataka, India
         </span>
       </div>
 
@@ -179,7 +179,7 @@ export default function Hero() {
                 fontWeight: 500,
               }}
             >
-              SV Developers &amp; Constructions
+              SV Developers
             </span>
             <span style={{ display: "block", width: 32, height: 1, background: "rgba(130,88,52,0.50)" }} />
           </div>

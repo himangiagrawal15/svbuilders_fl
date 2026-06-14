@@ -65,7 +65,7 @@ export default function Header() {
             }}
           >
             <img
-              src="https://i.ibb.co/Z6CBvxYn/SVLOGO.png"
+              src="/SVLOGO.png"
               alt="SV Developers"
               style={{
                 height: isScrolled ? 48 : 54,

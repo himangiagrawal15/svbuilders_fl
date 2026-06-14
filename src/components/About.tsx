@@ -148,40 +148,25 @@ export default function About() {
               Who We Are
             </p>
 
-            <h2 style={{ lineHeight: 1.0, margin: "0 0 1.5rem" }}>
-              <div style={{ overflow: "hidden" }}>
-                <span
-                  style={{
-                    display: "block",
-                    fontFamily: "var(--font-heading, 'DM Serif Display', serif)",
-                    fontSize: "clamp(3rem, 7vw, 6.5rem)",
-                    fontWeight: 700,
-                    letterSpacing: "-0.025em",
-                    color: "#0f0d0a",
-                    transform: visible ? "translateY(0)" : "translateY(110%)",
-                    transition: `transform 1.05s ${ease} 80ms`,
-                  }}
-                >
-                  About SV
+            <h2 style={{ lineHeight: 1.0, margin: "0 0 1.5rem", overflow: "hidden" }}>
+              <span
+                style={{
+                  display: "block",
+                  fontFamily: "var(--font-heading, 'DM Serif Display', serif)",
+                  fontSize: "clamp(2.4rem, 6vw, 5.5rem)",
+                  fontWeight: 700,
+                  letterSpacing: "-0.025em",
+                  color: "#0f0d0a",
+                  transform: visible ? "translateY(0)" : "translateY(110%)",
+                  transition: `transform 1.05s ${ease} 80ms`,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                About{" "}
+                <span style={{ fontWeight: 400, fontStyle: "italic", color: "#BE9234" }}>
+                  SV Developers
                 </span>
-              </div>
-              <div style={{ overflow: "hidden" }}>
-                <span
-                  style={{
-                    display: "block",
-                    fontFamily: "var(--font-heading, 'DM Serif Display', serif)",
-                    fontSize: "clamp(3rem, 7vw, 6.5rem)",
-                    fontWeight: 400,
-                    fontStyle: "italic",
-                    letterSpacing: "-0.025em",
-                    color: "#BE9234",
-                    transform: visible ? "translateY(0)" : "translateY(110%)",
-                    transition: `transform 1.05s ${ease} 260ms`,
-                  }}
-                >
-                  Developers
-                </span>
-              </div>
+              </span>
             </h2>
 
             {/* Animated wave rule */}

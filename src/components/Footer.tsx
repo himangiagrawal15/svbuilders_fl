@@ -67,7 +67,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <img
-              src="https://i.ibb.co/Z6CBvxYn/SVLOGO.png"
+              src="/SVLOGO.png"
               alt="SV Developers"
               className="h-16 w-auto object-contain mb-5"
               style={{ filter: "brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(-5deg) brightness(1.3)" }}
@@ -122,17 +122,7 @@ export default function Footer() {
           <div>
             <p className="section-label text-[#E8DCC8]/35 mb-6">Get In Touch</p>
             <ul className="space-y-5">
-              <li>
-                <a href="tel:+919945586527" className="flex items-start gap-3 group">
-                  <Phone className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#E8DCC8]/25 group-hover:text-[#E8DCC8]/60 transition-colors" />
-                  <div>
-                    <p className="text-[#E8DCC8]/65 text-sm group-hover:text-[#E8DCC8] transition-colors">
-                      +91 9945586527
-                    </p>
-                    <p className="text-[#E8DCC8]/25 text-xs mt-0.5">Primary</p>
-                  </div>
-                </a>
-              </li>
+              
               <li>
                 <a href="tel:+919538595685" className="flex items-start gap-3 group">
                   <Phone className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#E8DCC8]/25 group-hover:text-[#E8DCC8]/60 transition-colors" />
@@ -145,10 +135,10 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:svdevelopers.construct@gmail.com" className="flex items-start gap-3 group">
+                <a href="mailto:marketing@svdevelopers.in" className="flex items-start gap-3 group">
                   <Mail className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#E8DCC8]/25 group-hover:text-[#E8DCC8]/60 transition-colors" />
                   <p className="text-[#E8DCC8]/65 text-sm group-hover:text-[#E8DCC8] transition-colors break-all">
-                    svdevelopers.construct@gmail.com
+                    marketing@svdevelopers.in
                   </p>
                 </a>
               </li>
@@ -176,7 +166,7 @@ export default function Footer() {
         <div className="border-t border-[#E8DCC8]/07 mt-14 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[#E8DCC8]/25 text-xs text-center md:text-left tracking-wide">
             © {year}{" "}
-            <span className="text-[#E8DCC8]/45">SV Developers &amp; Constructions</span>. All rights reserved.
+            <span className="text-[#E8DCC8]/45">SV Developers </span>. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs">
             {["Privacy Policy", "Terms of Service", "Sitemap"].map((t) => (

@@ -35,7 +35,7 @@ function Display({ children, italic, color = "#0f0d0a", size = "clamp(2.2rem,5vw
 }
 
 const highlights = [
-  { k: "2.1 acres", v: "Masterplan" },
+  { k: "2.6 acres", v: "Masterplan" },
   { k: "81%", v: "Open / Landscape" },
   { k: "23+", v: "Storeys, MIVAN built" },
   { k: "45+", v: "Curated amenities" },
@@ -65,18 +65,20 @@ const locationAnchors = [
 ];
 
 const gallery = [
-  "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80",
+  "/aurora%20pics/overview.png",
+  "/aurora%20pics/Aurora%20club.png",
+  "/aurora%20pics/amphitheatre.png",
+  "/aurora%20pics/sky%20deck.png",
+  "/aurora%20pics/mMivan.png",
+  "/aurora%20pics/pg%2044%20.jpg",
+  "/aurora%20pics/page%20no%2027%20(1).png",
+  "/aurora%20pics/page%20no%206.png",
 ];
 
 export default function Aurora() {
   const [modalOpen, setModalOpen] = useState(false);
   const [lightbox, setLightbox] = useState<number | null>(null);
-  const heroRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLVideoElement>(null);
 
   /* Subtle hero parallax */
   useEffect(() => {
@@ -107,7 +109,7 @@ export default function Aurora() {
         <title>The Aurora — Luxury Residences | SV Developers</title>
         <meta
           name="description"
-          content="The Aurora by SV Developers — luxury 2 & 3 bedroom residences on the Hoskote corridor, Bangalore. 2.1-acre masterplan, 81% open landscape, 45+ amenities, MIVAN construction. Pre-launch now."
+          content="The Aurora by SV Developers — luxury 2 & 3 bedroom residences on the Hoskote corridor, Bangalore. 2.6-acre masterplan, 81% open landscape, 45+ amenities, MIVAN construction. Pre-launch now."
         />
         <meta property="og:title" content="The Aurora — Luxury Residences | SV Developers" />
         <meta
@@ -124,13 +126,14 @@ export default function Aurora() {
       <main className="overflow-x-hidden">
         {/* ──────────────── HERO ──────────────── */}
         <section className="relative h-screen min-h-[640px] flex items-end overflow-hidden">
-          <div
+          <video
             ref={heroRef}
-            className="absolute inset-0 bg-cover bg-center will-change-transform"
-            style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=80')",
-            }}
+            className="absolute inset-0 w-full h-full object-cover will-change-transform"
+            src="/aurora%20pics/auroravideo.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
           />
           <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(15,13,10,0.85) 0%, rgba(15,13,10,0.25) 50%, rgba(15,13,10,0.45) 100%)" }} />
 
@@ -194,7 +197,7 @@ export default function Aurora() {
                   </p>
                   <p>
                     Aurora sits on the Old Madras Road / Hoskote corridor — the next serious stretch of
-                    Bangalore, redrawn by metro, highway, bullet train and airport. A 2.1-acre masterplan of
+                    Bangalore, redrawn by metro, highway, bullet train and airport. A 2.6-acre masterplan of
                     23+ storey towers, MIVAN-built, holding 2 &amp; 3 bedroom residences across four distinct
                     configurations, a multi-level clubhouse and a landscape engineered to remain the feature,
                     not the footnote.
@@ -393,13 +396,23 @@ export default function Aurora() {
                 <div className="relative overflow-hidden" style={{ border: "1px solid rgba(232,220,200,0.18)" }}>
                   <iframe
                     title="Aurora location — Hoskote, Bangalore"
-                    src="https://www.google.com/maps?q=Hoskote,+Bangalore&output=embed"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.3!2d77.7971!3d13.0711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTMwNDI0LjgsNzc0Ny44!5e0!3m2!1sen!2sin!4v1"
                     width="100%"
-                    height="460"
+                    height="420"
                     style={{ border: 0, display: "block", filter: "grayscale(0.4) contrast(1.05)" }}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                   />
+                  <a
+                    href="https://maps.app.goo.gl/2kKcgPPYZHWDuuRAA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full py-3 font-body text-[0.62rem] tracking-[0.18em] uppercase font-semibold"
+                    style={{ background: "rgba(15,13,10,0.92)", color: "#BE9234", borderTop: "1px solid rgba(232,220,200,0.18)" }}
+                  >
+                    <MapPin className="w-3.5 h-3.5" />
+                    Open in Google Maps
+                  </a>
                 </div>
               </Reveal>
             </div>
