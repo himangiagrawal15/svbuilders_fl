@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowUpRight, Instagram } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 const quickLinks = [
@@ -123,6 +123,19 @@ export default function Footer() {
             <p className="section-label text-[#E8DCC8]/35 mb-6">Get In Touch</p>
             <ul className="space-y-5">
               
+              <li>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 group"
+                >
+                  <Instagram className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#E8DCC8]/25 group-hover:text-[#E8DCC8]/60 transition-colors" />
+                  <p className="text-[#E8DCC8]/65 text-sm group-hover:text-[#E8DCC8] transition-colors">
+                    @svdevelopers
+                  </p>
+                </a>
+              </li>
               <li>
                 <a href="tel:+919538595685" className="flex items-start gap-3 group">
                   <Phone className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#E8DCC8]/25 group-hover:text-[#E8DCC8]/60 transition-colors" />
