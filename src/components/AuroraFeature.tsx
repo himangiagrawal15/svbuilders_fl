@@ -541,16 +541,19 @@ export default function AuroraFeature() {
             </p>
             <h2
               style={{
-                fontFamily: "'Playfair Display', serif",
-                fontSize: "clamp(2.0rem,5vw,4rem)",
-                fontWeight: 800,
-                letterSpacing: "0.09em",
-                lineHeight: 1,
+                fontFamily: "var(--font-heading, 'DM Serif Display', serif)",
+                fontSize: "clamp(2.4rem, 6vw, 5.5rem)",
+                fontWeight: 700,
+                letterSpacing: "-0.025em",
+                lineHeight: 1.0,
                 color: CREAM,
                 margin: 0,
               }}
             >
-              Upcoming Projects
+              Upcoming{" "}
+              <span style={{ fontWeight: 400, fontStyle: "italic", color: "#BE9234" }}>
+                Projects
+              </span>
             </h2>
           </Reveal>
         </div>

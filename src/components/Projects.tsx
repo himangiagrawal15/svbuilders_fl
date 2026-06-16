@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import * as THREE from "three";
 import gsap from "gsap";
 import { ArrowUpRight, CheckCircle2, ArrowLeft, X } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -419,7 +420,19 @@ function HouseScene({ onEnterCategory }: { onEnterCategory: (cat: CatKey) => voi
       container.prepend(renderer.domElement);
 
       const scene  = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(46, W / H, 0.1, 3000);
+      const BASE_FOV = 46;
+      // On portrait screens (aspect < 1) the horizontal FOV shrinks and the
+      // side portals get clipped — widen the vertical FOV so the effective
+      // horizontal FOV matches what it'd be at aspect 1. Landscape/desktop
+      // (aspect >= 1) keeps the original FOV untouched.
+      function fovForAspect(aspect: number): number {
+        if (aspect >= 1) return BASE_FOV;
+        const baseHalfRad = (BASE_FOV * Math.PI / 180) / 2;
+        const desiredHorizHalf = Math.atan(Math.tan(baseHalfRad) * 1);
+        const newVHalf = Math.atan(Math.tan(desiredHorizHalf) / aspect);
+        return (newVHalf * 2) * 180 / Math.PI;
+      }
+      const camera = new THREE.PerspectiveCamera(fovForAspect(W / H), W / H, 0.1, 3000);
       camera.position.set(0, 30, 820);
 
       // ── Wireframe house ────────────────────────────────────────────────────
@@ -605,7 +618,7 @@ function HouseScene({ onEnterCategory }: { onEnterCategory: (cat: CatKey) => voi
       };
       const onRz = () => {
         W = container.clientWidth; H = container.clientHeight;
-        renderer.setSize(W,H); camera.aspect=W/H; camera.updateProjectionMatrix();
+        renderer.setSize(W,H); camera.aspect=W/H; camera.fov=fovForAspect(W/H); camera.updateProjectionMatrix();
       };
 
       container.addEventListener("mousedown", onMD);
@@ -802,6 +815,7 @@ function CategoryView({ category, onBack, onProjectClick, onProjectHover }: {
 }) {
   const meta        = CAT_META[category];
   const catProjects = projects.filter(p => p.category === category);
+  const isMobile    = useIsMobile();
   const eyebrowRef  = useRef<HTMLDivElement>(null);
   const titleRef    = useRef<HTMLDivElement>(null);
   const subRef      = useRef<HTMLDivElement>(null);
@@ -868,7 +882,7 @@ function CategoryView({ category, onBack, onProjectClick, onProjectHover }: {
         <div ref={gridRef} style={{ display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(min(300px,100%),1fr))",gap:2,background:"rgba(71,55,39,0.08)" }}>
           {catProjects.map((p,i) => (
             <div key={p.id} className="cproj"
-              onClick={()=>onProjectClick(p)}
+              onClick={()=>{ if (!isMobile) onProjectClick(p); }}
               onMouseEnter={()=>onProjectHover(p)}
               onMouseLeave={()=>onProjectHover(null)}
               onTouchStart={()=>onProjectHover(p)}

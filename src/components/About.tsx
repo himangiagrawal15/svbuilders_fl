@@ -365,15 +365,17 @@ export default function About() {
                   {values.map((v, i) => (
                     <span
                       key={v}
-                      className="px-3.5 py-1.5 text-[0.65rem] tracking-[0.16em] uppercase font-body hover:bg-[#473727] hover:text-[#E8DCC8] hover:border-[#473727]"
+                      className="px-3.5 py-1.5 text-[0.65rem] tracking-[0.16em] uppercase font-body hover:bg-[#473727] hover:border-[#473727]"
                       style={{
                         border: "1px solid rgba(71,55,39,0.38)",
                         color: "#473727",
                         fontWeight: 600,
                         opacity: counting ? 1 : 0,
                         transform: counting ? "translateY(0)" : "translateY(14px)",
-                        transition: `opacity 0.5s ease ${400 + i * 75}ms, transform 0.5s ${ease} ${400 + i * 75}ms, background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease`,
+                        transition: `opacity 0.5s ease ${400 + i * 75}ms, transform 0.5s ${ease} ${400 + i * 75}ms, background-color 0.35s ease, border-color 0.35s ease`,
                       }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "#E8DCC8"; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "#473727"; }}
                     >
                       {v}
                     </span>
